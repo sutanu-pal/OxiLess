@@ -1,0 +1,1218 @@
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\client\default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to 127.0.0.1:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\decorators.py", line 10, in wrap
+    resp = ratelimit.consume_or_429(request, action=action, **rl_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 121, in consume_or_429
+    if not consume(request, *args, **kwargs):
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 100, in consume
+    if not _consume_rate(request, action=action, rate=rate, key=key, user=user):
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 107, in _consume_rate
+    history = cache.get(cache_key, [])
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\client\default.py", line 258, in get
+    value = client.get(key)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. No connection could be made because the target machine actively refused it.
+"POST /accounts/signup/ HTTP/1.1" 500 137179
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\client\default.py", line 260, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 10061 connecting to 127.0.0.1:6379. No connection could be made because the target machine actively refused it.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\decorators.py", line 10, in wrap
+    resp = ratelimit.consume_or_429(request, action=action, **rl_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 121, in consume_or_429
+    if not consume(request, *args, **kwargs):
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 100, in consume
+    if not _consume_rate(request, action=action, rate=rate, key=key, user=user):
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\core\ratelimit.py", line 107, in _consume_rate
+    history = cache.get(cache_key, [])
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\cache.py", line 36, in _decorator
+    raise e.__cause__
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django_redis\client\default.py", line 258, in get
+    value = client.get(key)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\commands\core.py", line 1830, in get
+    return self.execute_command("GET", name)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\client.py", line 540, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\connection.py", line 1104, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\redis\connection.py", line 282, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. No connection could be made because the target machine actively refused it.
+"POST /accounts/signup/ HTTP/1.1" 500 139041
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 255, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 95, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+        request, *args, **kwargs
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 227, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 123, in post
+    response = self.form_valid(form)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 273, in form_valid
+    return complete_signup(
+        self.request,
+    ...<2 lines>...
+        self.get_success_url(),
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 241, in complete_signup
+    return perform_login(
+        request,
+    ...<4 lines>...
+        signal_kwargs=signal_kwargs,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 166, in perform_login
+    return _perform_login(request, login)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 176, in _perform_login
+    response = adapter.pre_login(request, login.user, **hook_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 461, in pre_login
+    send_email_confirmation(request, user, signup=signup, email=email)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 399, in send_email_confirmation
+    email_address.send_confirmation(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 93, in send_confirmation
+    confirmation.send(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 126, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 641, in send_confirmation_mail
+    self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 186, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/signup/ HTTP/1.1" 500 208335
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\http\request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 255, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 95, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+        request, *args, **kwargs
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 227, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 123, in post
+    response = self.form_valid(form)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 273, in form_valid
+    return complete_signup(
+        self.request,
+    ...<2 lines>...
+        self.get_success_url(),
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 241, in complete_signup
+    return perform_login(
+        request,
+    ...<4 lines>...
+        signal_kwargs=signal_kwargs,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 166, in perform_login
+    return _perform_login(request, login)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 176, in _perform_login
+    response = adapter.pre_login(request, login.user, **hook_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 461, in pre_login
+    send_email_confirmation(request, user, signup=signup, email=email)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 399, in send_email_confirmation
+    email_address.send_confirmation(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 93, in send_confirmation
+    confirmation.send(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 126, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 641, in send_confirmation_mail
+    self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 186, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/signup/ HTTP/1.1" 500 208363
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70852
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70548
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70548
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70548
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70548
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70552
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70817
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70689
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70786
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 70649
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71229
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71229
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71229
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71229
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71229
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71336
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71336
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+    ...<3 lines>...
+    )
+ValueError: The view carbon_app.views.home didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+"GET / HTTP/1.1" 500 71336
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\carbon_calculator\carbon_app\views.py", line 197, in home
+    return render(request, 'home.html', context)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        template_name,
+        ^^^^^^^^^^^^^^
+        skip=history,
+        ^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 8: 'static'. Did you forget to register or load this tag?
+"GET / HTTP/1.1" 500 180193
+Internal Server Error: /accounts/signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\decorators.py", line 12, in wrap
+    resp = function(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 255, in dispatch
+    return super(SignupView, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 95, in dispatch
+    response = super(RedirectAuthenticatedUserMixin, self).dispatch(
+        request, *args, **kwargs
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 227, in dispatch
+    return super(CloseableSignupMixin, self).dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 123, in post
+    response = self.form_valid(form)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 273, in form_valid
+    return complete_signup(
+        self.request,
+    ...<2 lines>...
+        self.get_success_url(),
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 241, in complete_signup
+    return perform_login(
+        request,
+    ...<4 lines>...
+        signal_kwargs=signal_kwargs,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 166, in perform_login
+    return _perform_login(request, login)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 176, in _perform_login
+    response = adapter.pre_login(request, login.user, **hook_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 461, in pre_login
+    send_email_confirmation(request, user, signup=signup, email=email)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\utils.py", line 399, in send_email_confirmation
+    email_address.send_confirmation(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 93, in send_confirmation
+    confirmation.send(request, signup=signup)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\models.py", line 126, in send
+    get_adapter().send_confirmation_mail(request, self, signup)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 641, in send_confirmation_mail
+    self.send_mail(email_template, emailconfirmation.email_address.email, ctx)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 186, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/signup/ HTTP/1.1" 500 209078
+Internal Server Error: /accounts/password/reset/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 123, in post
+    response = self.form_valid(form)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 815, in form_valid
+    form.save(self.request)
+    ~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\forms.py", line 594, in save
+    self._send_password_reset_mail(request, email, self.users, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\forms.py", line 628, in _send_password_reset_mail
+    get_adapter().send_mail("account/email/password_reset_key", email, context)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 186, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/password/reset/ HTTP/1.1" 500 139553
+Internal Server Error: /accounts/password/reset/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 123, in post
+    response = self.form_valid(form)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\views.py", line 815, in form_valid
+    form.save(self.request)
+    ~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\forms.py", line 594, in save
+    self._send_password_reset_mail(request, email, self.users, **kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\forms.py", line 628, in _send_password_reset_mail
+    get_adapter().send_mail("account/email/password_reset_key", email, context)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\allauth\account\adapter.py", line 186, in send_mail
+    msg.send()
+    ~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\message.py", line 298, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 127, in send_messages
+    new_conn_created = self.open()
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\mail\backends\smtp.py", line 85, in open
+    self.connection = self.connection_class(
+                      ~~~~~~~~~~~~~~~~~~~~~^
+        self.host, self.port, **connection_params
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+                                    self.source_address)
+                                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 864, in create_connection
+    raise exceptions[0]
+  File "C:\Users\SUTANU\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 849, in create_connection
+    sock.connect(sa)
+    ~~~~~~~~~~~~^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+"POST /accounts/password/reset/ HTTP/1.1" 500 139385
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\carbon_calculator\carbon_app\views.py", line 25, in landing_page
+    return render(request, 'landing_page.html')
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 139: 'static'. Did you forget to register or load this tag?
+"GET / HTTP/1.1" 500 147941
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\carbon_calculator\carbon_app\views.py", line 25, in landing_page
+    return render(request, 'landing_page.html')
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+    ...<3 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 755: 'static'. Did you forget to register or load this tag?
+"GET / HTTP/1.1" 500 148376
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\carbon_calculator\carbon_app\views.py", line 37, in landing_page
+    return render(request, 'landing_page.html')
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login.html' not found. 'login.html' is not a valid view function or pattern name.
+"GET / HTTP/1.1" 500 119947
+Internal Server Error: /signup/
+Traceback (most recent call last):
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\SUTANU\Carbon Calculator\carbon_calculator\carbon_app\views.py", line 74, in user_signup
+    return render(request, 'signup.html')
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\SUTANU\Carbon Calculator\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: signup.html
+"GET /signup/ HTTP/1.1" 500 85758

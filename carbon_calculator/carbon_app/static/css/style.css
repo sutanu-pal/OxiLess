@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+header { background: #4CAF50; color: white; padding: 10px; }
+header h1 { margin: 0; }
+main { max-width: 800px; margin: 0 auto; }
+form { margin: 20px 0; }
+form p { margin: 10px 0; }
+button { background: #4CAF50; color: white; padding: 10px; border: none; cursor: pointer; }
+button:hover { background: #45a049; }
+ul { list-style: disc; padding-left: 20px; }
+a { color: #4CAF50; text-decoration: none; }
+a:hover { text-decoration: underline; }

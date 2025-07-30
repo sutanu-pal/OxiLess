@@ -1,0 +1,367 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .leaderboard-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: #1a1a1a;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        color: #e0e0e0;
+    }
+
+    .leaderboard-title {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 3rem;
+        letter-spacing: -0.02em;
+        position: relative;
+    }
+
+    .leaderboard-title::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #4ade80, #22c55e);
+        border-radius: 2px;
+    }
+
+    .leaderboard-sections {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .leaderboard-section {
+        background: #242424;
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid #333;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .individual-title::before {
+        content: '👤';
+        font-size: 1.2rem;
+    }
+
+    .group-title::before {
+        content: '👥';
+        font-size: 1.2rem;
+    }
+
+    .leaderboard-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        counter-reset: ranking;
+    }
+
+    .leaderboard-item {
+        counter-increment: ranking;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+        margin-bottom: 0.75rem;
+        background: #1f1f1f;
+        border-radius: 8px;
+        border-left: 4px solid transparent;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .leaderboard-item::before {
+        content: counter(ranking);
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 50px;
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #000;
+        font-size: 1.1rem;
+    }
+
+    .leaderboard-item:nth-child(1)::before {
+        background: linear-gradient(135deg, #ffd700, #ffed4e);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .leaderboard-item:nth-child(2)::before {
+        background: linear-gradient(135deg, #c0c0c0, #e5e5e5);
+    }
+
+    .leaderboard-item:nth-child(3)::before {
+        background: linear-gradient(135deg, #cd7f32, #d2691e);
+    }
+
+    .leaderboard-item:nth-child(1) {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 237, 78, 0.05));
+        border-left-color: #ffd700;
+        transform: scale(1.02);
+    }
+
+    .leaderboard-item:nth-child(2) {
+        background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), rgba(229, 229, 229, 0.05));
+        border-left-color: #c0c0c0;
+    }
+
+    .leaderboard-item:nth-child(3) {
+        background: linear-gradient(135deg, rgba(205, 127, 50, 0.1), rgba(210, 105, 30, 0.05));
+        border-left-color: #cd7f32;
+    }
+
+    .leaderboard-item:hover {
+        background: #2a2a2a;
+        transform: translateX(4px) scale(1.01);
+    }
+
+    .leaderboard-item:nth-child(1):hover {
+        transform: translateX(4px) scale(1.03);
+        box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+    }
+
+    .participant-info {
+        margin-left: 60px;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .participant-name {
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 1.1rem;
+    }
+
+    .participant-rank {
+        background: rgba(74, 222, 128, 0.2);
+        color: #4ade80;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    .participant-score {
+        color: #4ade80;
+        font-weight: 700;
+        font-size: 1.2rem;
+        font-variant-numeric: tabular-nums;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .participant-score::after {
+        content: 'XP';
+        font-size: 0.8rem;
+        color: #888;
+        font-weight: 500;
+    }
+
+    .back-btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: #000;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        font-size: 0.9rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .back-btn::before {
+        content: '←';
+        margin-right: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .back-btn:hover {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 222, 128, 0.3);
+        color: #000;
+        text-decoration: none;
+    }
+
+    .back-section {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 2rem;
+        color: #888;
+        font-style: italic;
+    }
+
+    .trophy-icon {
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .leaderboard-item:nth-child(1) .trophy-icon::before {
+        content: '🏆';
+    }
+
+    .leaderboard-item:nth-child(2) .trophy-icon::before {
+        content: '🥈';
+    }
+
+    .leaderboard-item:nth-child(3) .trophy-icon::before {
+        content: '🥉';
+    }
+
+    @media (max-width: 768px) {
+        .leaderboard-container {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+        
+        .leaderboard-sections {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .leaderboard-title {
+            font-size: 2rem;
+        }
+        
+        .participant-info {
+            margin-left: 50px;
+        }
+        
+        .leaderboard-item::before {
+            width: 40px;
+            font-size: 1rem;
+        }
+        
+        .participant-name {
+            font-size: 1rem;
+        }
+        
+        .participant-score {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .leaderboard-item {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem 0.75rem;
+        }
+        
+        .participant-info {
+            margin-left: 40px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .participant-score {
+            align-self: flex-end;
+            margin-top: -2rem;
+        }
+    }
+</style>
+
+<div class="leaderboard-container">
+    <h2 class="leaderboard-title">🏆 Leaderboard</h2>
+    
+    <div class="leaderboard-sections">
+        <div class="leaderboard-section">
+            <h3 class="section-title individual-title">Individual Rankings</h3>
+            {% if individual_leaderboard %}
+                <ol class="leaderboard-list">
+                    {% for name, score in individual_leaderboard %}
+                        <li class="leaderboard-item">
+                            <div class="participant-info">
+                                <span class="trophy-icon"></span>
+                                <span class="participant-name">{{ name }}</span>
+                                {% if forloop.counter <= 3 %}
+                                    <span class="participant-rank">Top {{ forloop.counter }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="participant-score">{{ score }}</div>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <div class="empty-state">
+                    No individual rankings yet. Be the first to calculate your footprint!
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="leaderboard-section">
+            <h3 class="section-title group-title">Group Rankings</h3>
+            {% if group_leaderboard %}
+                <ol class="leaderboard-list">
+                    {% for name, score in group_leaderboard %}
+                        <li class="leaderboard-item">
+                            <div class="participant-info">
+                                <span class="trophy-icon"></span>
+                                <span class="participant-name">{{ name }}</span>
+                                {% if forloop.counter <= 3 %}
+                                    <span class="participant-rank">Top {{ forloop.counter }}</span>
+                                {% endif %}
+                            </div>
+                            <div class="participant-score">{{ score }}</div>
+                        </li>
+                    {% endfor %}
+                </ol>
+            {% else %}
+                <div class="empty-state">
+                    No group rankings yet. Create or join a group to compete!
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="back-section">
+        <a href="{% url 'home' %}" class="back-btn">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

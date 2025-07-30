@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .join-group-container {
+        max-width: 500px;
+        margin: 3rem auto;
+        padding: 2.5rem;
+        background: #1a1a1a;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        color: #e0e0e0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .join-group-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #4ade80, #22c55e, #60a5fa, #3b82f6);
+        background-size: 200% 100%;
+        animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .join-title {
+        font-size: 2.2rem;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .join-title::before {
+        content: '👥';
+        font-size: 2rem;
+    }
+
+    .join-subtitle {
+        text-align: center;
+        color: #b0b0b0;
+        margin-bottom: 2.5rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .join-form {
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: #242424;
+        border: 2px solid #333;
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #4ade80;
+        background: #2a2a2a;
+        box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #888;
+    }
+
+    .form-help-text {
+        font-size: 0.85rem;
+        color: #888;
+        margin-top: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .form-errors {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 6px;
+        padding: 0.75rem;
+        margin-top: 0.5rem;
+        color: #fca5a5;
+        font-size: 0.9rem;
+    }
+
+    .form-errors ul {
+        margin: 0;
+        padding-left: 1.25rem;
+    }
+
+    .join-btn {
+        width: 100%;
+        padding: 1.25rem 2rem;
+        background: linear-gradient(135deg, #4ade80, #22c55e);
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .join-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .join-btn:hover::before {
+        left: 100%;
+    }
+
+    .join-btn:hover {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
+    }
+
+    .join-btn:active {
+        transform: translateY(0);
+    }
+
+    .join-btn:disabled {
+        background: #333;
+        color: #666;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .back-link {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        color: #b0b0b0;
+        text-decoration: none;
+        border: 2px solid #333;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .back-link::before {
+        content: '←';
+        margin-right: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .back-link:hover {
+        background: #242424;
+        border-color: #4ade80;
+        color: #4ade80;
+        text-decoration: none;
+        transform: translateX(-2px);
+    }
+
+    .back-section {
+        text-align: center;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+    }
+
+    .feature-list {
+        background: #242424;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        border-left: 4px solid #60a5fa;
+    }
+
+    .feature-list h4 {
+        color: #ffffff;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .feature-list ul {
+        margin: 0;
+        padding-left: 1.25rem;
+        color: #d0d0d0;
+    }
+
+    .feature-list li {
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    .feature-list li::marker {
+        color: #60a5fa;
+    }
+
+    /* Custom styling for Django form fields */
+    .form-group p {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group p label {
+        display: block;
+        font-weight: 500;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    .form-group p input,
+    .form-group p select,
+    .form-group p textarea {
+        width: 100%;
+        padding: 1rem 1.25rem;
+        background: #242424;
+        border: 2px solid #333;
+        border-radius: 8px;
+        color: #ffffff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+        .join-group-container {
+            margin: 1.5rem 1rem;
+            padding: 2rem;
+        }
+        
+        .join-title {
+            font-size: 1.8rem;
+        }
+        
+        .join-btn {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .join-group-container {
+            margin: 1rem 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .join-title {
+            font-size: 1.6rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>
+
+<div class="join-group-container">
+    <h2 class="join-title">Join a Group</h2>
+    <p class="join-subtitle">Connect with like-minded individuals and compete together in reducing your carbon footprint</p>
+    
+    <div class="feature-list">
+        <h4>🌟 Group Benefits</h4>
+        <ul>
+            <li>Compete with friends and colleagues</li>
+            <li>Share tips and motivation</li>
+            <li>Track collective environmental impact</li>
+            <li>Earn bonus XP through group challenges</li>
+        </ul>
+    </div>
+
+    <form method="post" class="join-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="join-btn">🚀 Join Group</button>
+    </form>
+
+    <div class="back-section">
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

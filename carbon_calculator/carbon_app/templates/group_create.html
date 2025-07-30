@@ -1,0 +1,435 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .create-group-container {
+        max-width: 600px;
+        margin: 3rem auto;
+        padding: 2.5rem;
+        background: #1a1a1a;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        color: #e0e0e0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .create-group-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6, #8b5cf6, #a855f7);
+        background-size: 200% 100%;
+        animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+
+    .create-title {
+        font-size: 2.4rem;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .create-title::before {
+        content: '✨';
+        font-size: 2.2rem;
+        animation: sparkle 2s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+        0%, 100% { transform: scale(1) rotate(0deg); }
+        50% { transform: scale(1.1) rotate(10deg); }
+    }
+
+    .create-subtitle {
+        text-align: center;
+        color: #b0b0b0;
+        margin-bottom: 2.5rem;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .create-form {
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.8rem;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        position: relative;
+    }
+
+    .form-group label::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        border-radius: 1px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        background: #242424;
+        border: 2px solid #333;
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #60a5fa;
+        background: #2a2a2a;
+        box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.1);
+        transform: translateY(-1px);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.5;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #888;
+        font-style: italic;
+    }
+
+    .form-help-text {
+        font-size: 0.9rem;
+        color: #888;
+        margin-top: 0.75rem;
+        line-height: 1.4;
+        font-style: italic;
+    }
+
+    .form-errors {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 0.75rem;
+        color: #fca5a5;
+        font-size: 0.95rem;
+    }
+
+    .form-errors ul {
+        margin: 0;
+        padding-left: 1.5rem;
+    }
+
+    .create-btn {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+    }
+
+    .create-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .create-btn:hover::before {
+        left: 100%;
+    }
+
+    .create-btn:hover {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+    }
+
+    .create-btn:active {
+        transform: translateY(-1px);
+    }
+
+    .create-btn:disabled {
+        background: #333;
+        color: #666;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .back-link {
+        display: inline-block;
+        padding: 1rem 1.75rem;
+        background: transparent;
+        color: #b0b0b0;
+        text-decoration: none;
+        border: 2px solid #333;
+        border-radius: 10px;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .back-link::before {
+        content: '←';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+
+    .back-link:hover::before {
+        transform: translateX(-3px);
+    }
+
+    .back-link:hover {
+        background: #242424;
+        border-color: #60a5fa;
+        color: #60a5fa;
+        text-decoration: none;
+        transform: translateX(-3px);
+    }
+
+    .back-section {
+        text-align: center;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+    }
+
+    .feature-highlight {
+        background: linear-gradient(135deg, #242424, #1f1f1f);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+        border: 1px solid #333;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-highlight::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+    }
+
+    .feature-highlight h4 {
+        color: #ffffff;
+        margin-bottom: 1.25rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .feature-highlight h4::before {
+        content: '🚀';
+        font-size: 1.5rem;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+    }
+
+    .feature-item {
+        background: rgba(96, 165, 250, 0.05);
+        padding: 1.25rem;
+        border-radius: 8px;
+        border-left: 3px solid #60a5fa;
+        transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+        background: rgba(96, 165, 250, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .feature-item h5 {
+        color: #60a5fa;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .feature-item p {
+        color: #d0d0d0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin: 0;
+    }
+
+    /* Custom styling for Django form fields */
+    .form-group p {
+        margin-bottom: 1.8rem;
+    }
+
+    .form-group p label {
+        display: block;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.75rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+        position: relative;
+    }
+
+    .form-group p label::after {
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        border-radius: 1px;
+    }
+
+    .form-group p input,
+    .form-group p select,
+    .form-group p textarea {
+        width: 100%;
+        padding: 1.25rem 1.5rem;
+        background: #242424;
+        border: 2px solid #333;
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    @media (max-width: 768px) {
+        .create-group-container {
+            margin: 1.5rem 1rem;
+            padding: 2rem;
+        }
+        
+        .create-title {
+            font-size: 2rem;
+        }
+        
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .create-btn {
+            padding: 1.25rem 1.5rem;
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .create-group-container {
+            margin: 1rem 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .create-title {
+            font-size: 1.8rem;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .feature-highlight {
+            padding: 1.5rem;
+        }
+    }
+</style>
+
+<div class="create-group-container">
+    <h2 class="create-title">Create a Group</h2>
+    <p class="create-subtitle">Start your own carbon footprint challenge community and lead the way towards a more sustainable future</p>
+    
+    <div class="feature-highlight">
+        <h4>Why Create a Group?</h4>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h5>🎯 Set Goals</h5>
+                <p>Define collective emission reduction targets for your team</p>
+            </div>
+            <div class="feature-item">
+                <h5>📊 Track Progress</h5>
+                <p>Monitor group performance and celebrate milestones together</p>
+            </div>
+            <div class="feature-item">
+                <h5>🏆 Compete</h5>
+                <p>Challenge other groups and climb the leaderboards</p>
+            </div>
+            <div class="feature-item">
+                <h5>💡 Share Ideas</h5>
+                <p>Exchange tips and sustainable living practices</p>
+            </div>
+        </div>
+    </div>
+
+    <form method="post" class="create-form">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="create-btn">🌟 Create Group</button>
+    </form>
+
+    <div class="back-section">
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

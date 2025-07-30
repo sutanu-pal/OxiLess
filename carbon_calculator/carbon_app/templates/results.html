@@ -1,0 +1,488 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .carbon-dashboard {
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 3rem;
+        background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+        border-radius: 20px;
+        box-shadow: 
+            0 25px 50px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.05);
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        color: #e8e8e8;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .carbon-dashboard::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #10b981, #059669, #047857);
+        border-radius: 20px 20px 0 0;
+    }
+
+    .carbon-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        letter-spacing: -0.025em;
+        background: linear-gradient(135deg, #ffffff, #d1d5db);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .carbon-subtitle {
+        text-align: center;
+        color: #9ca3af;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        font-weight: 400;
+    }
+
+    .metrics-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .total-emissions {
+        background: linear-gradient(135deg, #111827, #1f2937);
+        padding: 2.5rem;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .total-emissions::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #10b981, transparent);
+    }
+
+    .total-emissions-text {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+
+    .emissions-value {
+        font-size: 3.5rem;
+        font-weight: 300;
+        color: #10b981;
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+    }
+
+    .emissions-unit {
+        font-size: 1.2rem;
+        color: #6b7280;
+        font-weight: 500;
+        margin-top: 0.5rem;
+    }
+
+    .xp-section {
+        background: linear-gradient(135deg, #1e1b4b, #312e81);
+        padding: 2.5rem;
+        border-radius: 16px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .xp-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #6366f1, transparent);
+    }
+
+    .xp-text {
+        font-size: 0.95rem;
+        color: #c7d2fe;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+
+    .xp-value {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #6366f1;
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+        text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #f9fafb;
+        margin: 3rem 0 1.5rem 0;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, #10b981, #059669);
+        border-radius: 1px;
+    }
+
+    .breakdown-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .breakdown-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #111827, #1f2937);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .breakdown-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #10b981, #059669);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .breakdown-item:hover {
+        background: linear-gradient(135deg, #1f2937, #374151);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: rgba(16, 185, 129, 0.2);
+    }
+
+    .breakdown-item:hover::before {
+        opacity: 1;
+    }
+
+    .breakdown-category {
+        font-weight: 600;
+        color: #f3f4f6;
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .breakdown-category::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #10b981;
+        flex-shrink: 0;
+    }
+
+    .breakdown-value {
+        color: #10b981;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        font-size: 1.1rem;
+    }
+
+    .suggestions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 3rem;
+    }
+
+    .suggestion-item {
+        padding: 1.75rem;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: #e2e8f0;
+        line-height: 1.6;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .suggestion-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .suggestion-item:hover {
+        background: linear-gradient(135deg, #1e293b, #334155);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .suggestion-item:hover::before {
+        opacity: 1;
+    }
+
+    .suggestion-icon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 8px;
+        margin-right: 1rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .suggestion-content {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .action-section {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .try-again-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.25rem 2.5rem;
+        background: linear-gradient(135deg, #10b981, #059669);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.95rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    }
+
+    .try-again-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .try-again-btn:hover::before {
+        left: 100%;
+    }
+
+    .try-again-btn:hover {
+        background: linear-gradient(135deg, #059669, #047857);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .try-again-btn::after {
+        content: '↻';
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .status-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 20px;
+        color: #10b981;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .status-indicator::before {
+        content: '✓';
+        width: 16px;
+        height: 16px;
+        background: #10b981;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+    }
+
+    @media (max-width: 1024px) {
+        .metrics-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .breakdown-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .suggestions-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .carbon-dashboard {
+            margin: 1.5rem;
+            padding: 2rem;
+        }
+        
+        .carbon-title {
+            font-size: 2.2rem;
+        }
+        
+        .emissions-value {
+            font-size: 2.8rem;
+        }
+        
+        .xp-value {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .carbon-dashboard {
+            margin: 1rem;
+            padding: 1.5rem;
+        }
+        
+        .carbon-title {
+            font-size: 1.9rem;
+        }
+        
+        .breakdown-item {
+            flex-direction: column;
+            text-align: center;
+            gap: 0.75rem;
+        }
+    }
+</style>
+
+<div class="carbon-dashboard">
+    <div class="status-indicator">Analysis Complete</div>
+    
+    <h2 class="carbon-title">Carbon Footprint Analysis</h2>
+    <p class="carbon-subtitle">Comprehensive environmental impact assessment</p>
+    
+    <div class="metrics-grid">
+        <div class="total-emissions">
+            <div class="total-emissions-text">Total Carbon Emissions</div>
+            <div class="emissions-value">{{ total_emissions }}</div>
+            <div class="emissions-unit">kg CO₂ equivalent</div>
+        </div>
+
+        <div class="xp-section">
+            <div class="xp-text">Experience Points</div>
+            <div class="xp-value">{{ xp_points }}</div>
+        </div>
+    </div>
+
+    <h3 class="section-title">Emission Breakdown by Category</h3>
+    <div class="breakdown-grid">
+        <div class="breakdown-item">
+            <span class="breakdown-category">Electricity Usage</span>
+            <span class="breakdown-value">{{ emission_breakdown.electricity|floatformat:2 }} kg CO₂e</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-category">Transportation</span>
+            <span class="breakdown-value">{{ emission_breakdown.transport|floatformat:2 }} kg CO₂e</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-category">Air Travel</span>
+            <span class="breakdown-value">{{ emission_breakdown.flights|floatformat:2 }} kg CO₂e</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-category">Food & Diet</span>
+            <span class="breakdown-value">{{ emission_breakdown.food|floatformat:2 }} kg CO₂e</span>
+        </div>
+        <div class="breakdown-item">
+            <span class="breakdown-category">Consumer Purchases</span>
+            <span class="breakdown-value">{{ emission_breakdown.purchases|floatformat:2 }} kg CO₂e</span>
+        </div>
+    </div>
+
+    <h3 class="section-title">Personalized Recommendations</h3>
+    <div class="suggestions-grid">
+        {% for suggestion in suggestions %}
+            <div class="suggestion-item">
+                <div class="suggestion-icon">💡</div>
+                <div class="suggestion-content">{{ suggestion }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="action-section">
+        <a href="{% url 'home' %}" class="try-again-btn">Recalculate Footprint</a>
+    </div>
+</div>
+{% endblock %}

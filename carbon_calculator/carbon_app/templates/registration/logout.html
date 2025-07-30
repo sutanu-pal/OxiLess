@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .dark-container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #0a0a0a;
+        min-height: 100vh;
+        color: #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dark-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            radial-gradient(circle at 25% 25%, rgba(34, 197, 94, 0.08) 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: patternMove 20s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes patternMove {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(50px, 50px); }
+    }
+
+    .logout-card {
+        background: rgba(20, 20, 20, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 2.5rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.6s ease-out;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        color: #ffffff;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 1px;
+    }
+
+    p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        margin: 1.5rem 0;
+        line-height: 1.6;
+    }
+
+    p:first-of-type {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        position: relative;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: inline-block;
+        margin: 0 0.25rem;
+    }
+
+    a:hover {
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+    }
+
+    a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 2px;
+        left: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        transition: all 0.2s ease;
+        transform: translateX(-50%);
+    }
+
+    a:hover::after {
+        width: 80%;
+    }
+
+    /* Subtle pulse animation for card */
+    .logout-card {
+        animation: fadeIn 0.6s ease-out, pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); }
+        50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05); }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .dark-container {
+            padding: 1rem;
+        }
+        
+        .logout-card {
+            padding: 2rem 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        a {
+            display: block;
+            margin: 0.5rem 0;
+        }
+    }
+
+    /* Subtle grid animation overlay */
+    .logout-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+            linear-gradient(rgba(34, 197, 94, 0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(34, 197, 94, 0.04) 1px, transparent 1px);
+        background-size: 20px 20px;
+        border-radius: 16px;
+        opacity: 0;
+        animation: gridFade 6s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    @keyframes gridFade {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+
+    /* Separator styling */
+    p:last-child {
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="dark-container">
+    <div class="logout-card">
+        <h2>Logout</h2>
+        <p>You have been logged out.</p>
+        <p><a href="{% url 'account_login' %}">Login Again</a> | <a href="{% url 'home' %}">Home</a></p>
+    </div>
+</div>
+{% endblock %}
